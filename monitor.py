@@ -1,14 +1,12 @@
 import os
 import time
 
-# Assumes a 1 core system
-
 
 def get_cpu_load():
     cpu_load = open("/proc/loadavg", "r")
-    load = cpu_load.read().split()[:3]
+    load = (cpu_load.read().split()[:3]) * 100
     print(
-        f"CPU; 1 min avg: {load[0]}%, 5 mins avg: {load[1]}%, 15 mins avg: {load[2]}%")
+        f"CPU; 1 min avg: {100*float(load[0])}%, 5 mins avg: {100*float(load[1])}%, 15 mins avg: {100*float(load[2])}%")
     cpu_load.close()
 
 
