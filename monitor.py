@@ -3,8 +3,10 @@ import time
 
 
 def get_cpu_usage():
-    load = os.system('uptime')
-    print(load)
+    cpu_load = os.system('uptime')
+    print(cpu_load)
 
 
-get_cpu_usage()
+def get_memory_usage():
+    mem = os.system('free -m')
+    print(mem)
