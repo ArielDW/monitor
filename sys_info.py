@@ -3,11 +3,13 @@ import time
 
 
 def get_systen_load():
-    print("System information")
     print("\n")
+    print("System information")
     system_info = open("/etc/os-release", "r")
+
     sysinfo = system_info.readlines()
     print(f"OS: {sysinfo[6].split('=')[1]}")
+
     system_info.close()
 
     hostname = open("/etc/hostname", "r")

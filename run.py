@@ -1,7 +1,8 @@
-from sys_info import get_systen_load
+import os
 
 
 def menu():
+    os.system("clear")
     print("Select an option:")
     print("1. System information")
     print("2. Alert settings")
@@ -12,9 +13,11 @@ def menu():
     choice = int(input("> "))
 
     if choice == 1:
+        from sys_info import get_systen_load
         get_systen_load()
     elif choice == 2:
-        pass
+        from update_settings import update_settings
+        update_settings()
     elif choice == 3:
         pass
     elif choice == 4:
