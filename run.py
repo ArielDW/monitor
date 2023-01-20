@@ -3,8 +3,11 @@ import os
 
 def menu():
     os.system("clear")
+    from sys_info import get_system_info
+    get_system_info()
+    print("\n")
     print("Select an option:")
-    print("1. System information")
+    print("1. Refresh system information")
     print("2. Alert settings")
     print("3. Start daemon")
     print("4. Stop daemon")
@@ -13,8 +16,8 @@ def menu():
     choice = int(input("> "))
 
     if choice == 1:
-        from sys_info import get_systen_load
-        get_systen_load()
+        os.system("clear")
+        menu()
     elif choice == 2:
         from update_settings import update_settings
         update_settings()
@@ -23,7 +26,7 @@ def menu():
     elif choice == 4:
         pass
     elif choice == 5:
-        pass
+        exit()
 
     else:
         print("Invalid choice")
