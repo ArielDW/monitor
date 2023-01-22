@@ -10,7 +10,8 @@ def update_settings():
                     "phone": "Empty",
                     "twilio_account_sid": "Empty",
                     "twilio_auth_token": "Empty",
-                    "twilio_number": "Empty"}
+                    "twilio_number": "Empty",
+                    "keep_alive": "False"}
 
         with open("settings.json", "w") as f:
             json.dump(settings, f)
