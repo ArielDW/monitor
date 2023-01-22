@@ -9,7 +9,8 @@ def update_settings():
                     "RAM": "95",
                     "phone": "Empty",
                     "twilio_account_sid": "Empty",
-                    "twilio_auth_token": "Empty"}
+                    "twilio_auth_token": "Empty",
+                    "twilio_number": "Empty"}
 
         with open("settings.json", "w") as f:
             json.dump(settings, f)
@@ -31,8 +32,10 @@ def update_settings():
         f"4. Twilio account SID........Current value: {settings['twilio_account_sid']}")
     print(
         f"5. Twilio auth token.........Current value: {settings['twilio_auth_token']}")
+    print(
+        f"6. Twilio phone number.......Current value: {settings['twilio_number']}")
 
-    print(f"6. Back")
+    print(f"7. Back")
     choice = int(input("> "))
 
     if choice == 1:
@@ -49,7 +52,7 @@ def update_settings():
     elif choice == 3:
         os.system("clear")
         print('\nPlease use country code and no spaces eg. +13236569090 \n')
-        new_phone = input("Enter new phone number for SMS notifications: ")
+        new_phone = input("Enter phone number to receive SMS notifications: ")
         settings["phone"] = new_phone
 
     elif choice == 4:
@@ -63,6 +66,13 @@ def update_settings():
         settings['twilio_auth_token'] = new_token
 
     elif choice == 6:
+        os.system("clear")
+        print('\nThis is the number that you get in the Twilio website. \nPlease use country code and no spaces eg. +13236569090 \n')
+        twilio_num = input(
+            "Enter the Twilio number that will deliver SMS notifications: ")
+        settings['twilio_number'] = twilio_num
+
+    elif choice == 7:
         os.system("clear")
         menu()
     else:
