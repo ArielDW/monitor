@@ -3,7 +3,7 @@ import os
 
 def menu():
     os.system("clear")
-    from sys_info import get_system_info
+    from info import get_system_info
     get_system_info()
     print("\n")
     print("Select an option:")
