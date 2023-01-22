@@ -1,5 +1,5 @@
 # Server Monitor
-This series of scripts are intended to be used for monitoring and logging server resources and triggering an alert using the Twilio API when the specified are reached.
+This series of scripts are intended to be used for monitoring and logging server resources and triggering an alert using the Twilio API when the specified values are reached.
 
 ## Features
 * System information overview from main menu
