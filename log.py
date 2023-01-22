@@ -9,9 +9,13 @@ def add_entry():
         print("OK")
 
 
-if not os.path.exists("system_records.log"):
-    with open("system_records.log", "w") as log_file:
-        add_entry()
-else:
-    with open("system_records.log", "a") as log_file:
-        add_entry()
+def log_activity():
+    if not os.path.exists("system_records.log"):
+        with open("system_records.log", "w") as log_file:
+            add_entry()
+    else:
+        with open("system_records.log", "a") as log_file:
+            add_entry()
+
+
+log_activity()
