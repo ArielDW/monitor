@@ -36,12 +36,15 @@ def log_activity():
 
 
 def main():
-    with open("settings.json", "r") as f:
-        settings = json.load(f)
-        keep_alive = settings["keep_alive"]
-        while keep_alive == "True":
-            log_activity()
-            time.sleep(5)
+    while True:
+        with open("settings.json", "r") as f:
+            settings = json.load(f)
+            keep_alive = settings["keep_alive"]
+            if keep_alive == "True":
+                log_activity()
+                time.sleep(5)
+            else:
+                break
 
 
 main()
