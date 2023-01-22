@@ -7,7 +7,9 @@ def update_settings():
     if not os.path.exists("settings.json"):
         settings = {"CPU": "95",
                     "RAM": "95",
-                    "phone": "Not set"}
+                    "phone": "Empty",
+                    "twilio_account_sid": "Empty",
+                    "twilio_auth_token": "Empty"}
 
         with open("settings.json", "w") as f:
             json.dump(settings, f)
@@ -20,14 +22,17 @@ def update_settings():
     os.system("clear")
     print(f"Select an option:")
     print(
-        f"1. Update CPU threshold...............Current value: {settings['CPU']} %")
+        f"1. Update CPU threshold......Current value: {settings['CPU']} %")
     print(
-        f"2. Update memory threshold............Current value: {settings['RAM']} %")
-#    print(
-#        f"3. Update notification email..........Current value: {settings['email']}")
+        f"2. Update memory threshold...Current value: {settings['RAM']} %")
     print(
-        f"3. Update notification phone number...Current value: {settings['phone']}")
-    print(f"4. Back")
+        f"3. Update SMS alert number...Current value: {settings['phone']}")
+    print(
+        f"4. Twilio account SID........Current value: {settings['twilio_account_sid']}")
+    print(
+        f"5. Twilio auth token.........Current value: {settings['twilio_auth_token']}")
+
+    print(f"6. Back")
     choice = int(input("> "))
 
     if choice == 1:
@@ -35,23 +40,34 @@ def update_settings():
         print("\nExample: A value of 130 percent triggers an alert if 30 percent of the processes are waiting for CPU time. \n")
         new_cpu = input("Enter new CPU threshold: ")
         settings["CPU"] = new_cpu
+        update_settings()
 
     elif choice == 2:
         os.system("clear")
         new_ram = input("Enter new memory threshold: ")
         settings["RAM"] = new_ram
-
-#    elif choice == 3:
-#        new_email = input("Enter new notification email: ")
-#        settings["email"] = new_email
+        update_settings()
 
     elif choice == 3:
         os.system("clear")
         print('\nPlease use country code and no spaces eg. +13236569090 \n')
         new_phone = input("Enter new phone number for SMS notifications: ")
         settings["phone"] = new_phone
+        update_settings()
 
     elif choice == 4:
+        os.system("clear")
+        new_sid = input("Update Twilio account SID: ")
+        settings["twilio_account_sid"] = new_sid
+        update_settings()
+
+    elif choice == 5:
+        os.system("clear")
+        new_token = input("Update Twilio authorization token: ")
+        settings['twilio_auth_token'] = new_token
+        update_settings()
+
+    elif choice == 6:
         os.system("clear")
         menu()
     else:
