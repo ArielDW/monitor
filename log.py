@@ -1,6 +1,8 @@
 import datetime
 import os
 import psutil
+import time
+import json
 
 
 def add_log_entry():
@@ -8,7 +10,7 @@ def add_log_entry():
         # TIMESTAMP
         timestamp = str(datetime.datetime.now())
 
-        # CPU LOAD, past 60 secs avg
+        # CPU LOAD
         cpu = psutil.getloadavg()
         cpu_load = str(round(cpu[0], 2))
 
@@ -20,9 +22,6 @@ def add_log_entry():
         percentage = round(used/total*100, 2)
         log_file.write(
             f'{timestamp}, {cpu_load} %, {total} MB, {free} MB, {round(used,2)} MB, {percentage} %\n')
-        print("OK")
-
-        log_file.close()
 
 
 def log_activity():
@@ -36,4 +35,13 @@ def log_activity():
             add_log_entry()
 
 
-log_activity()
+def main():
+    with open("settings.json", "r") as f:
+        settings = json.load(f)
+        keep_alive = settings["keep_alive"]
+        while keep_alive == "True":
+            log_activity()
+            time.sleep(5)
+
+
+main()
