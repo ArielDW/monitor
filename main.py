@@ -61,6 +61,8 @@ def menu():
                 settings["keep_alive"] = "True"
                 with open("settings.json", "w") as f:
                     json.dump(settings, f)
+                from log import main
+                main()
                 menu()
 
     elif choice == 4:
