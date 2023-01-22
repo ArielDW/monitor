@@ -40,36 +40,34 @@ def update_settings():
         print("\nExample: A value of 130 percent triggers an alert if 30 percent of the processes are waiting for CPU time. \n")
         new_cpu = input("Enter new CPU threshold: ")
         settings["CPU"] = new_cpu
-        update_settings()
 
     elif choice == 2:
         os.system("clear")
         new_ram = input("Enter new memory threshold: ")
         settings["RAM"] = new_ram
-        update_settings()
 
     elif choice == 3:
         os.system("clear")
         print('\nPlease use country code and no spaces eg. +13236569090 \n')
         new_phone = input("Enter new phone number for SMS notifications: ")
         settings["phone"] = new_phone
-        update_settings()
 
     elif choice == 4:
         os.system("clear")
         new_sid = input("Update Twilio account SID: ")
         settings["twilio_account_sid"] = new_sid
-        update_settings()
 
     elif choice == 5:
         os.system("clear")
         new_token = input("Update Twilio authorization token: ")
         settings['twilio_auth_token'] = new_token
-        update_settings()
 
     elif choice == 6:
         os.system("clear")
         menu()
     else:
         os.system("clear")
-        update_settings()
+
+    with open("settings.json", "w") as f:
+        json.dump(settings, f)
+    update_settings()
