@@ -1,9 +1,12 @@
 import os
+import json
 from twilio.rest import Client
 
-account_sid = ""
-auth_token = ""
-client = Client(account_sid, auth_token)
+with open("settings.json", "r") as f:
+    settings = json.load(f)
+    account_sid = f"{settings['CPU']}"
+    auth_token = ""
+    client = Client(account_sid, auth_token)
 
 message = client.messages.create(
     body="Hello from Twilio",
