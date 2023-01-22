@@ -7,6 +7,8 @@ This series of scripts are intended to be used for monitoring a server resources
 * Modify CPU/Memory alert threshold
 * Will log system performance
 
+## Library Requierements
+datetime, os, psutil, platform, json, twilio.rest
 
 ## Disclaimer
 This is a personal project for demonstrative purposes, ***functionality is not finished*** and it will definitely break in production or completly randomly, might also bankrupt your company and kick your dog for that matter...
