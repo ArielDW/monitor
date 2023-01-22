@@ -12,7 +12,7 @@ def add_log_entry():
 
         # CPU LOAD
         cpu = psutil.getloadavg()
-        cpu_load = str(round(cpu[0], 2))
+        cpu_load = round(100*(cpu[0]), 2)
 
         # MEMORY USAGE
         memory = psutil.virtual_memory()
@@ -21,7 +21,7 @@ def add_log_entry():
         used = total - free
         percentage = round(used/total*100, 2)
         log_file.write(
-            f'{timestamp}, {cpu_load} %, {total} MB, {free} MB, {round(used,2)} MB, {percentage} %\n')
+            f'{timestamp}, {str(cpu_load)} %, {total} MB, {free} MB, {round(used,2)} MB, {percentage} %\n')
 
 
 def log_activity():
