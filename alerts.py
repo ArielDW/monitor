@@ -2,9 +2,9 @@ import os
 import json
 from twilio.rest import Client
 
-# It works, disable it for now
+# It works, disabled for now
 """
-def triggerSMS(message):
+def triggerSMSmessage(message):
     try:
         with open("settings.json", "r") as f:
             settings = json.load(f)
@@ -26,4 +26,4 @@ def triggerSMS(message):
         sys.exit(4)
 """
 
-#triggerSMS("This example works")
+#triggerSMSmessage("This example works")
