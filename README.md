@@ -7,4 +7,6 @@ This series of scripts are intended to be used for monitoring and logging server
 * Modify CPU/Memory alert threshold
 * Network, DNS, CPU, RAM tests
 * Will create a log with tests results
+
 * Run as daemon or background process (Pending...)
+* Kafka event streaming (Pending...)
